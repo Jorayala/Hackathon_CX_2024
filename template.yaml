@@ -1,0 +1,15 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Resources:
+  LambdaFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: lambda_functionBedrock.main
+      Runtime: python3.11
+      CodeUri: .
+      Timeout: 30
+      MemorySize: 512
+      Environment:
+        Variables:
+          S3_BUCKET: hackathon-cx-2024
+          PDF_FILE: Guide_to_Managing_Classification_Outcomes.pdf
